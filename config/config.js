@@ -16,10 +16,10 @@ module.exports = {
     "dialect": "postgres"
   },
   "production": {
-    "username": process.env.DB_USERNAME,
-    "password": process.env.DB_PASSWORD,
-    "database": process.env.DB_DATABASE,
-    "host": "localhost",
+    "username": "jsn_storage_user",
+    "password": "6gqwe3LUsnCcZfBXztA1o47LOUJ1Q2QS",
+    "database": "jsn_storage",
+    "host": "dpg-ck3mornqj8ts73fs2t00-a",
     "dialect": "postgres"
   }
 }
