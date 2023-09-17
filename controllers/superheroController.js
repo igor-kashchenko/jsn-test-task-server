@@ -84,7 +84,7 @@ const deleteHero = async (req, res) => {
   try {
     const superhero = await Superheroes.findOne({
       where: { id },
-      include: [{  model: Images, as: "images", attributes: ["image_URLS"] }],
+      include: [{ model: Images, as: "images", attributes: ["image_URLS"] }],
     });
 
     if (superhero.images.length > 0) {
@@ -97,7 +97,7 @@ const deleteHero = async (req, res) => {
         imagekit.bulkDeleteFiles(imageIds, function (error, result) {
           if (error) {
             console.log(error);
-            reject('Error deleting images from ImageKit');
+            reject("Error deleting images from ImageKit");
           } else {
             resolve();
           }
@@ -105,11 +105,13 @@ const deleteHero = async (req, res) => {
       });
     }
 
-    await Superheroes.destroy({where: {
-      id
-    }})
+    await Superheroes.destroy({
+      where: {
+        id,
+      },
+    });
 
-    res.send('Success');
+    res.send("Success");
   } catch (error) {
     console.log(error);
   }
@@ -118,20 +120,24 @@ const deleteHero = async (req, res) => {
 const editHero = async (req, res) => {
   const { id } = req.params;
 
-  const superhero = await Superheroes.findOne({
-    where: { id },
-  });
-
-  if (!superhero) {
-    return res.status(404).send('Superhero not found');
+  try {
+    const superhero = await Superheroes.findOne({
+      where: { id },
+    });
+  
+    if (!superhero) {
+      return res.status(404).send("Superhero not found");
+    }
+  
+    const updatedValues = req.body;
+  
+    await superhero.update(updatedValues);
+  
+    res.send("success");
+  } catch (error) {
+    console.log(error)
   }
-
-  const updatedValues = req.body;
-
-  await superhero.update(updatedValues);
-
-  res.send('success')
-}
+};
 
 module.exports = {
   superheroController: {

@@ -1,10 +1,10 @@
-const imagekit = require('../imagekit/index');
+const imagekit = require("../imagekit/index");
 
 const uploadFile = async (file) => {
   const fileData = {
     file: file.buffer,
     fileName: file.originalname,
-    folder: 'super-heroes',
+    folder: "super-heroes",
   };
 
   try {
@@ -29,7 +29,6 @@ const uploadFile = async (file) => {
     return null;
   }
 };
-
 
 module.exports = {
   uploadFile,

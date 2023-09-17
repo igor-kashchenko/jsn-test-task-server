@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const Superheroes = sequelize.define('Superheroes', {
+  const Superheroes = sequelize.define("Superheroes", {
     nickname: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -19,21 +19,16 @@ module.exports = (sequelize, DataTypes) => {
     catch_phrase: {
       type: DataTypes.STRING,
       allowNull: false,
-    }
-  })
+    },
+  });
 
   Superheroes.associate = (models) => {
     Superheroes.hasMany(models.Images, {
-      foreignKey: 'superheroId', 
-      as: 'images',
-      onDelete: 'CASCADE',
+      foreignKey: "superheroId",
+      as: "images",
+      onDelete: "CASCADE",
     });
   };
 
   return Superheroes;
-}
-
-
-
-
-
+};
