@@ -2,24 +2,24 @@ require("dotenv").config();
 
 module.exports = {
   development: {
-    username: "jsn_storage_user",
-    password: "6gqwe3LUsnCcZfBXztA1o47LOUJ1Q2QS",
-    database: "jsn_storage",
-    host: "dpg-ck3mornqj8ts73fs2t00-a",
+    username: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE,
+    host: process.env.DB_HOST,
     dialect: "postgres",
   },
   test: {
-    username: "jsn_storage_user",
-    password: "6gqwe3LUsnCcZfBXztA1o47LOUJ1Q2QS",
-    database: "jsn_storage",
-    host: "dpg-ck3mornqj8ts73fs2t00-a",
+    username: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE,
+    host: process.env.DB_HOST,
     dialect: "postgres",
   },
   production: {
-    username: "jsn_storage_user",
-    password: "6gqwe3LUsnCcZfBXztA1o47LOUJ1Q2QS",
-    database: "jsn_storage",
-    host: "dpg-ck3mornqj8ts73fs2t00-a",
+    username: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE,
+    host: process.env.DB_HOST,
     dialect: "postgres",
   },
 };
